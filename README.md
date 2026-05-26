@@ -63,25 +63,6 @@ termtypist хранит пользовательские данные локал
 
 Пользовательские словари можно положить в `~/.config/termtypist/languages` в формате `txt`, `json` или `toml`. Пользовательские темы и наборы цитат используют те же форматы в каталогах `themes` и `quotes`.
 
-## Релиз
-
-Перед публикацией проверьте сборку и создайте тег версии:
-
-```sh
-cargo test --locked
-git tag v0.1.0
-git push origin main v0.1.0
-```
-
-Для AUR обновите `sha256sums` после появления GitHub-архива:
-
-```sh
-cd packaging/aur
-updpkgsums
-makepkg --printsrcinfo > .SRCINFO
-makepkg -si
-```
-
 ## Лицензия
 
 MIT
@@ -152,25 +133,6 @@ termtypist writes user data locally:
 Set `TERM_TYPIST_CONFIG_DIR` to use a different config directory.
 
 Custom dictionaries can be `txt`, `json`, or `toml` files under `~/.config/termtypist/languages`. Custom themes and quote sets use the same formats under `themes` and `quotes`.
-
-### Release
-
-Before publishing a release, verify the build and tag the version:
-
-```sh
-cargo test --locked
-git tag v0.1.0
-git push origin main v0.1.0
-```
-
-For AUR, update `sha256sums` after the GitHub archive is available:
-
-```sh
-cd packaging/aur
-updpkgsums
-makepkg --printsrcinfo > .SRCINFO
-makepkg -si
-```
 
 ### License
 
