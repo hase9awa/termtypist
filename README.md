@@ -17,10 +17,8 @@
   <img src="assets/interface1.png" alt="Интерфейс termtypist" width="920">
 </p>
 
-https://github.com/hase9awa/termtypist/raw/main/assets/video.mp4
-
 <p align="center">
-  <a href="assets/video.mp4">Открыть видео демонстрации</a>
+  <img src="assets/video.gif" alt="Демонстрация работы termtypist" width="920">
 </p>
 
 ## Возможности

@@ -10,4 +10,5 @@ PKGBUILD text eol=lf
 .SRCINFO text eol=lf
 
 *.png binary
+*.gif binary
 *.mp4 binary
