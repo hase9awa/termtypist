@@ -9,6 +9,6 @@ pkgbase = termtypist
 	depends = alsa-lib
 	depends = gcc-libs
 	source = termtypist-0.1.0.tar.gz::https://github.com/hase9awa/termtypist/archive/refs/tags/v0.1.0.tar.gz
-	sha256sums = SKIP
+	sha256sums = c706eb488c03e0b5a44cae9047c7a4297a9bef64b5bf904b75fb7acf8ef07def
 
 pkgname = termtypist

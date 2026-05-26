@@ -10,7 +10,7 @@ license=('MIT')
 depends=('alsa-lib' 'gcc-libs')
 makedepends=('cargo')
 source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('SKIP')
+sha256sums=('c706eb488c03e0b5a44cae9047c7a4297a9bef64b5bf904b75fb7acf8ef07def')
 
 prepare() {
   cd "${pkgname}-${pkgver}"
