@@ -2,6 +2,13 @@
   <img src="assets/logo.png" alt="termtypist" width="460">
 </p>
 
+<p align="center">
+  <a href="LICENSE"><img alt="license" src="https://img.shields.io/badge/license-GPL--3.0--or--later-blue"></a>
+  <a href="https://github.com/hase9awa/termtypist/releases"><img alt="release" src="https://img.shields.io/github/v/release/hase9awa/termtypist?label=release"></a>
+  <a href="https://aur.archlinux.org/packages/termtypist"><img alt="AUR" src="https://img.shields.io/aur/version/termtypist?label=AUR"></a>
+  <a href="https://github.com/hase9awa/termtypist"><img alt="repositories" src="https://img.shields.io/badge/in%20repositories-2-blue"></a>
+</p>
+
 # termtypist
 
 Терминальный тренажер печати с управлением с клавиатуры. Вдохновлен Monkeytype, но работает локально, быстро и без выхода из терминала.
@@ -10,9 +17,7 @@
   <img src="assets/interface1.png" alt="Интерфейс termtypist" width="920">
 </p>
 
-<p align="center">
-  <video src="assets/video.mp4" controls width="920"></video>
-</p>
+https://github.com/hase9awa/termtypist/raw/main/assets/video.mp4
 
 <p align="center">
   <a href="assets/video.mp4">Открыть видео демонстрации</a>
@@ -89,7 +94,7 @@ termtypist хранит пользовательские данные локал
 
 ## Лицензия
 
-MIT
+GPL-3.0-or-later
 
 ---
 
@@ -168,4 +173,4 @@ Custom dictionaries can be `txt`, `json`, or `toml` files under `~/.config/termt
 
 ### License
 
-MIT
+GPL-3.0-or-later

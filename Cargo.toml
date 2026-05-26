@@ -1,10 +1,10 @@
 [package]
 name = "termtypist"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 rust-version = "1.85"
 description = "Keyboard-first terminal typing trainer inspired by Monkeytype"
-license = "MIT"
+license = "GPL-3.0-or-later"
 readme = "README.md"
 repository = "https://github.com/hase9awa/termtypist"
 homepage = "https://github.com/hase9awa/termtypist"
