@@ -18,7 +18,7 @@
 cargo install --git https://github.com/hase9awa/termtypist --locked
 ```
 
-Пользователи Arch Linux могут собрать AUR-пакет из `packaging/aur` после замены GitHub-заглушки в `PKGBUILD`.
+Пользователи Arch Linux могут собрать пакет из `packaging/aur`.
 
 ## Использование
 
@@ -89,7 +89,7 @@ From source:
 cargo install --git https://github.com/hase9awa/termtypist --locked
 ```
 
-Arch Linux users can build the AUR package from `packaging/aur` after replacing the GitHub owner placeholder in `PKGBUILD`.
+Arch Linux users can build the package from `packaging/aur`.
 
 ### Usage
 
