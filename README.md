@@ -12,13 +12,21 @@
 
 ## Установка
 
+Arch Linux через AUR:
+
+```sh
+yay -S termtypist
+# или
+paru -S termtypist
+```
+
 Из исходников:
 
 ```sh
 cargo install --git https://github.com/hase9awa/termtypist --locked
 ```
 
-Пользователи Arch Linux могут собрать пакет из `packaging/aur`.
+Пакет в AUR: <https://aur.archlinux.org/packages/termtypist>
 
 ## Использование
 
@@ -83,13 +91,21 @@ Keyboard-first typing trainer for the terminal. It is inspired by Monkeytype, bu
 
 ### Install
 
+Arch Linux via AUR:
+
+```sh
+yay -S termtypist
+# or
+paru -S termtypist
+```
+
 From source:
 
 ```sh
 cargo install --git https://github.com/hase9awa/termtypist --locked
 ```
 
-Arch Linux users can build the package from `packaging/aur`.
+AUR package: <https://aur.archlinux.org/packages/termtypist>
 
 ### Usage
 
