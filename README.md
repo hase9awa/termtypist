@@ -1,6 +1,22 @@
+<p align="center">
+  <img src="assets/logo.png" alt="termtypist" width="460">
+</p>
+
 # termtypist
 
 Терминальный тренажер печати с управлением с клавиатуры. Вдохновлен Monkeytype, но работает локально, быстро и без выхода из терминала.
+
+<p align="center">
+  <img src="assets/interface1.png" alt="Интерфейс termtypist" width="920">
+</p>
+
+<p align="center">
+  <video src="assets/video.mp4" controls width="920"></video>
+</p>
+
+<p align="center">
+  <a href="assets/video.mp4">Открыть видео демонстрации</a>
+</p>
 
 ## Возможности
 

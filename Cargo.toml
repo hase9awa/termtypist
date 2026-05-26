@@ -10,7 +10,7 @@ repository = "https://github.com/hase9awa/termtypist"
 homepage = "https://github.com/hase9awa/termtypist"
 keywords = ["typing", "tui", "terminal", "trainer", "monkeytype"]
 categories = ["command-line-utilities"]
-exclude = ["termtypist_tz.md", "packaging/"]
+exclude = ["termtypist_tz.md", "packaging/", "assets/"]
 
 [dependencies]
 anyhow = "1"
