@@ -10,7 +10,7 @@ license=('GPL-3.0-or-later')
 depends=('alsa-lib' 'gcc-libs')
 makedepends=('cargo')
 source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('SKIP')
+sha256sums=('c3dd80c72664c9a383b1f077452e576aae039143fb520b899abbc4e425c2b569')
 
 prepare() {
   cd "${pkgname}-${pkgver}"
