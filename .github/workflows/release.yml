@@ -26,3 +26,22 @@ jobs:
       - uses: softprops/action-gh-release@v2
         with:
           files: dist/termtypist-x86_64-unknown-linux-gnu.tar.gz
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build
+        run: cargo build --locked --release
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force dist/termtypist-x86_64-pc-windows-msvc | Out-Null
+          Copy-Item target/release/termtypist.exe dist/termtypist-x86_64-pc-windows-msvc/
+          Copy-Item README.md dist/termtypist-x86_64-pc-windows-msvc/
+          Copy-Item LICENSE dist/termtypist-x86_64-pc-windows-msvc/
+          Compress-Archive -Path dist/termtypist-x86_64-pc-windows-msvc -DestinationPath dist/termtypist-x86_64-pc-windows-msvc.zip -Force
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/termtypist-x86_64-pc-windows-msvc.zip
