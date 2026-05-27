@@ -51,6 +51,7 @@ const HEATMAP_RGB_PALETTE: [Color; 6] = [
     Color::Rgb(128, 0, 64),
 ];
 const HISTORY_TABLE_WIDTH: u16 = 74;
+const RESULT_OPEN_INPUT_ABSORB_MS: u64 = 350;
 
 const SETTING_THEME: usize = 0;
 const SETTING_VISUAL_STYLE: usize = 1;
@@ -196,6 +197,10 @@ fn handle_key(app: &mut App, key: KeyEvent, key_clicks: &mut KeyClickPlayer) {
     }
 
     if app.overlay != Overlay::None {
+        if should_absorb_recent_result_typing_key(app, key) {
+            pulse_after_interaction(app, previous_overlay, previous_input_len);
+            return;
+        }
         handle_overlay_key(app, key);
         pulse_after_interaction(app, previous_overlay, previous_input_len);
         return;
@@ -976,10 +981,9 @@ fn move_result_focus(app: &mut App, delta: isize) {
 
 fn activate_result_focus(app: &mut App) {
     let actions = result_keyboard_actions();
-    let action = app
-        .control_hover
-        .filter(|hover| actions.contains(hover))
-        .unwrap_or(ControlHover::ResultRestart);
+    let Some(action) = app.control_hover.filter(|hover| actions.contains(hover)) else {
+        return;
+    };
     app.control_hover = Some(action);
     app.animate_control(action, ControlAnimationKind::ActivateIn);
     match action {
@@ -1906,12 +1910,25 @@ fn is_safe_typing_screen_binding(app: &App, key: KeyEvent, binding: &str) -> boo
     key_binding_matches(key, binding) && !key_can_edit_text(app, key)
 }
 
+fn should_absorb_recent_result_typing_key(app: &App, key: KeyEvent) -> bool {
+    app.overlay == Overlay::Results
+        && key_is_text_input(key)
+        && app.ui_pulse.is_some_and(|pulse| {
+            pulse.kind == UiPulseKind::Overlay
+                && pulse.started_at.elapsed() < Duration::from_millis(RESULT_OPEN_INPUT_ABSORB_MS)
+        })
+}
+
 fn key_can_edit_text(app: &App, key: KeyEvent) -> bool {
     if app.overlay != Overlay::None
         || matches!(app.session.state, TestState::Finished | TestState::Failed)
     {
         return false;
     }
+    key_is_text_input(key)
+}
+
+fn key_is_text_input(key: KeyEvent) -> bool {
     let text_modifiers = key.modifiers & (KeyModifiers::CONTROL | KeyModifiers::ALT);
     if !text_modifiers.is_empty() {
         return false;
@@ -5494,5 +5511,38 @@ mod tests {
         assert_eq!(heatmap_error_percent_label(1, 227), "1%");
         assert_eq!(heatmap_error_percent_label(20, 227), "9%");
         assert_eq!(heatmap_error_percent_label(227, 227), "99%");
+    }
+
+    #[test]
+    fn text_input_key_detection_matches_typing_keys() {
+        assert!(key_is_text_input(KeyEvent::new(
+            KeyCode::Char(' '),
+            KeyModifiers::NONE
+        )));
+        assert!(key_is_text_input(KeyEvent::new(
+            KeyCode::Char('A'),
+            KeyModifiers::SHIFT
+        )));
+        assert!(key_is_text_input(KeyEvent::new(
+            KeyCode::Enter,
+            KeyModifiers::NONE
+        )));
+        assert!(key_is_text_input(KeyEvent::new(
+            KeyCode::Backspace,
+            KeyModifiers::NONE
+        )));
+
+        assert!(!key_is_text_input(KeyEvent::new(
+            KeyCode::Tab,
+            KeyModifiers::NONE
+        )));
+        assert!(!key_is_text_input(KeyEvent::new(
+            KeyCode::Char('r'),
+            KeyModifiers::CONTROL
+        )));
+        assert!(!key_is_text_input(KeyEvent::new(
+            KeyCode::Char('q'),
+            KeyModifiers::ALT
+        )));
     }
 }
